@@ -1,29 +1,38 @@
-import { useState } from "react"
-import { gradients as list } from "../gradients"
-import { ReactComponent as SvgToggle } from "bootstrap-icons/icons/arrow-clockwise.svg"
-import { ReactComponent as Next } from "bootstrap-icons/icons/arrow-right.svg"
-import { ReactComponent as Prev } from "bootstrap-icons/icons/arrow-left.svg"
+import { useState } from "react";
+
+import { ReactComponent as SvgToggle } from "bootstrap-icons/icons/arrow-clockwise.svg";
+import { ReactComponent as Next } from "bootstrap-icons/icons/arrow-right.svg";
+import { ReactComponent as Prev } from "bootstrap-icons/icons/arrow-left.svg";
+import { useFilter } from "../context/FilterContext";
 
 const GradientsHeader = (props) => {
-  const { children } = props
-  const length = list.length
+  const { children } = props;
+  const { data } = useFilter();
+  const length = data.length;
+  // console.log("GradientsHeader");
+  // console.log(data);
 
-  const chooseGradient = () => Math.floor(Math.random() * length)
+  const chooseGradient = () => {
+    let result = Math.floor(Math.random() * length);
+    return result;
+  };
 
-  const [randomGradient, setRandomGradient] = useState(chooseGradient)
+  const [randomGradient, setRandomGradient] = useState(chooseGradient);
   const handleReloadClick = () => {
-    setRandomGradient(chooseGradient)
-  }
+    setRandomGradient(chooseGradient);
+  };
   const handleNextClick = () => {
-    setRandomGradient(randomGradient === length - 1 ? 0 : randomGradient + 1)
-  }
+    setRandomGradient(randomGradient === length - 1 ? 0 : randomGradient + 1);
+  };
   const handlePrevClick = () => {
-    setRandomGradient(randomGradient === 0 ? length - 1 : randomGradient - 1)
-  }
+    setRandomGradient(randomGradient === 0 ? length - 1 : randomGradient - 1);
+  };
 
-  const style = {
-    backgroundImage: `linear-gradient(to right, ${list[randomGradient].start}, ${list[randomGradient].end})`
-  }
+  let style = data
+    ? {
+        backgroundImage: `linear-gradient(to right, ${data[randomGradient]?.start}, ${data[randomGradient]?.end})`,
+      }
+    : { background: "white" };
   return (
     <header className="text-center bg-dark text-white py-5 mb-5" style={style}>
       {children}
@@ -52,7 +61,7 @@ const GradientsHeader = (props) => {
         <Next />
       </button>
     </header>
-  )
-}
+  );
+};
 
-export default GradientsHeader
+export default GradientsHeader;
