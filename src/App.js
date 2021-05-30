@@ -2,11 +2,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
   // Redirect,
 } from "react-router-dom";
 import Footer from "./components/Footer";
 import GradientFullPage from "./components/GradientFullPage";
 import GradientsMain from "./components/GradientsMain";
+import NotFoundPage from "./components/NotFoundPage";
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={GradientsMain} />
           <Route exact path="/gradient/:id" component={GradientFullPage} />
-          {/* <Redirect to="" /> */}
+          <Redirect to="/404" component={NotFoundPage} />
         </Switch>
       </Router>
 

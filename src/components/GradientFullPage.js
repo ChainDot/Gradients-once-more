@@ -12,11 +12,11 @@ const GradientFullPage = () => {
   const { state } = useFilter();
   const [pickId, setPickId] = useState(id);
   const length = state.data.length;
-  // console.log(state);
+  console.log(state);
 
-  // console.log("GradientFullPage");
-  // console.log(id);
-  // console.log(pickId);
+  console.log("GradientFullPage");
+  console.log(id);
+  console.log(pickId);
 
   let style =
     pickId <= length
@@ -28,25 +28,20 @@ const GradientFullPage = () => {
       : { background: "Grey" };
   return (
     <div className="flex-fill d-flex" style={style}>
-      <ul className="fixed-top nav m-4">
+      <nav className="fixed-top nav m-4">
         <li className="nav-item">
-          <NavLink
-            className="btn btn-light text-dark nav-link me-2"
-            to="/"
-            aria-label="Tous"
-          >
+          <NavLink className="btn btn-light text-dark nav-link me-2" to="/">
             Tous
           </NavLink>
         </li>
-      </ul>
-      {pickId > length ? (
+      </nav>
+      {pickId && id > length ? (
         <div className="m-auto text-center">
           Désolé, ce gradient n'existe pas.
           <Link
             className="btn btn-light text-dark nav-link m-3"
             to={`/gradient/${1}`}
             onClick={() => setPickId(1)}
-            aria-label="recommencer"
           >
             <SvgToggle />
           </Link>
@@ -64,14 +59,13 @@ const GradientFullPage = () => {
               );
             </code>
           </div>
-          <ul className="nav m-4 d-flex justify-content-center">
+          <nav className="nav m-4 d-flex justify-content-center">
             {pickId > 1 && (
               <li className="nav-item">
                 <NavLink
                   className="btn btn-light text-dark nav-link me-2"
                   onClick={() => setPickId(Number(pickId) - 1)}
                   to={`/gradient/${Number(pickId) - 1}`}
-                  aria-label="Précédent"
                 >
                   <Prev />
                 </NavLink>
@@ -83,13 +77,12 @@ const GradientFullPage = () => {
                   className="btn btn-light text-dark  nav-link"
                   to={`/gradient/${Number(pickId) + 1}`}
                   onClick={() => setPickId(Number(pickId) + 1)}
-                  aria-label="Suivant"
                 >
                   <Next />
                 </NavLink>
               </li>
             )}
-          </ul>
+          </nav>
         </div>
       )}
     </div>
