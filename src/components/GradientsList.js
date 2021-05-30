@@ -2,15 +2,15 @@ import { useFilter } from "../context/FilterContext";
 import Gradient from "./Gradient";
 
 const GradientsList = () => {
-  const { filter, data } = useFilter();
+  const { state } = useFilter();
   // console.log("GradientsList");
   // console.log(data);
 
-  const list = data.filter((el) => {
-    if (filter === "all") {
+  const list = state.data.filter((el) => {
+    if (state.filter === "all") {
       return true;
     }
-    return el.tags.includes(filter);
+    return el.tags.includes(state.filter);
   });
   return (
     <ul className="row list-unstyled">

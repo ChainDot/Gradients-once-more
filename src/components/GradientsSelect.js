@@ -2,12 +2,12 @@ import { useFilter } from "../context/FilterContext";
 import { allTags } from "../gradients";
 
 const GradientsSelect = () => {
-  const { filter, setFilter, data } = useFilter();
+  const { state, dispatch } = useFilter();
   // console.log("Gradient Select");
   // console.log(data);
   // console.log(filter);
   const handleSelectChange = (e) => {
-    setFilter(e.target.value);
+    dispatch({ type: "SET_FILTER", payload: e.target.value });
   };
   return (
     <div className="input-group mb-3">
@@ -17,11 +17,11 @@ const GradientsSelect = () => {
       <select
         className="form-select"
         id="select"
-        value={filter}
+        value={state.filter}
         onChange={handleSelectChange}
       >
         <option value="all">Tous</option>
-        {allTags(data).map((el) => (
+        {allTags(state.data).map((el) => (
           <option key={el} value={el}>
             {el}
           </option>

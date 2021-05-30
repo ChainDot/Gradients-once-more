@@ -4,7 +4,6 @@ import {
   Route,
   // Redirect,
 } from "react-router-dom";
-
 import Footer from "./components/Footer";
 import GradientFullPage from "./components/GradientFullPage";
 import GradientsMain from "./components/GradientsMain";

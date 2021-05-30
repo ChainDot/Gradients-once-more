@@ -1,18 +1,18 @@
-import {useFilter} from "../context/FilterContext"
+import { useFilter } from "../context/FilterContext";
 
 const GradientTagButton = ({ tag }) => {
-  const {filter, setFilter} = useFilter()
-  const className = filter === tag ? "bg-light" : "bg-dark text-white"
+  const { state, dispatch } = useFilter();
+  const className = state.filter === tag ? "bg-light" : "bg-dark text-white";
   return (
     <button
       type="button"
       className={`btn btn-sm me-2 mb-2 ${className}`}
-      disabled={filter === tag}
-      onClick={() => setFilter(tag)}
+      disabled={state.filter === tag}
+      onClick={() => dispatch({ type: "SET_FILTER", payload: tag })}
     >
       {tag}
     </button>
-  )
-}
+  );
+};
 
-export default GradientTagButton
+export default GradientTagButton;

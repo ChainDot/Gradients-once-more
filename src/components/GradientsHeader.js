@@ -7,8 +7,8 @@ import { useFilter } from "../context/FilterContext";
 
 const GradientsHeader = (props) => {
   const { children } = props;
-  const { data } = useFilter();
-  const length = data.length;
+  const { state } = useFilter();
+  const length = state.data.length;
   // console.log("GradientsHeader");
   // console.log(data);
 
@@ -28,9 +28,9 @@ const GradientsHeader = (props) => {
     setRandomGradient(randomGradient === 0 ? length - 1 : randomGradient - 1);
   };
 
-  let style = data
+  let style = state.data
     ? {
-        backgroundImage: `linear-gradient(to right, ${data[randomGradient]?.start}, ${data[randomGradient]?.end})`,
+        backgroundImage: `linear-gradient(to right, ${state.data[randomGradient]?.start}, ${state.data[randomGradient]?.end})`,
       }
     : { background: "white" };
   return (
