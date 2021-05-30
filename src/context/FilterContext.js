@@ -9,7 +9,7 @@ export const FilterContextProvider = ({ children }) => {
   // const [data, setData] = useState([]);
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState("")
-  const url = "https://gradients-api.herokuapp.com/gradients/";
+  const URL = `${process.env.REACT_APP_API_URL}/gradients`;
 
   const initialData = {
     data: [],
@@ -24,7 +24,7 @@ export const FilterContextProvider = ({ children }) => {
   useEffect(() => {
     // setLoading(true);
     dispatch({ type: "FETCH_INIT" });
-    fetch(url, { method: "GET" })
+    fetch(URL, { method: "GET" })
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Something went wrong, status : ${response.status}`);
@@ -47,6 +47,7 @@ export const FilterContextProvider = ({ children }) => {
           dispatch({ type: "FETCH_FAILURE", payload: error.message });
         }
       });
+    // eslint-disable-next-line
   }, [isMounted]);
 
   return (
