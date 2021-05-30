@@ -30,9 +30,9 @@ const GradientsHeader = (props) => {
 
   let style = state.data
     ? {
-        backgroundImage: `linear-gradient(to right, ${state.data[randomGradient].start}, ${state.data[randomGradient].end})`,
+        backgroundImage: `linear-gradient(to right, ${state.data[randomGradient]?.start}, ${state.data[randomGradient]?.end})`,
       }
-    : { background: "white" };
+    : { background: "grey" };
   return (
     <header className="text-center bg-dark text-white py-5 mb-5" style={style}>
       {children}
