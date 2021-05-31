@@ -5,10 +5,10 @@ import { ReactComponent as SvgToggle } from "bootstrap-icons/icons/arrow-clockwi
 const NotFoundPage = () => {
   return (
     <div className="m-auto text-center">
-      Désolé, ce gradient n'existe pas.
+      Erreur 404
       <Link
         className="btn btn-dark  nav-link m-3"
-        to={`/gradient/${1}`}
+        to={`/`}
         // onClick={() => setRestart(1)}
         aria-label="recommencer"
       >

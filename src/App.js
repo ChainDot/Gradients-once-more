@@ -21,7 +21,6 @@ function App() {
           <Redirect to="*" />
         </Switch>
       </Router>
-
       <Footer />
     </div>
   );

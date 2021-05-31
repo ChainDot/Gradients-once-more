@@ -12,8 +12,7 @@ const GradientFullPage = () => {
   const { state } = useFilter();
   const [pickId, setPickId] = useState(id);
   const length = state.data.length;
-  console.log(state);
-
+  // console.log(state);
   console.log("GradientFullPage");
   console.log(id);
   console.log(pickId);
