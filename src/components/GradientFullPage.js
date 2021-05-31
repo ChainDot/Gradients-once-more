@@ -38,7 +38,7 @@ const GradientFullPage = () => {
           </NavLink>
         </li>
       </ul>
-      {id > length ? (
+      {id > length || isNaN(id) === true ? (
         <div className="m-auto text-center">
           Désolé, ce gradient n'existe pas.
           <Link
