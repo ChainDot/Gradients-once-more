@@ -4,10 +4,10 @@ import { ReactComponent as SvgToggle } from "bootstrap-icons/icons/arrow-clockwi
 
 const NotFoundPage = () => {
   return (
-    <div className="m-auto text-center text-dark">
+    <div className="m-auto text-center">
       Désolé, ce gradient n'existe pas.
       <Link
-        className="btn btn-light text-dark nav-link m-3"
+        className="btn btn-dark  nav-link m-3"
         to={`/gradient/${1}`}
         // onClick={() => setRestart(1)}
         aria-label="recommencer"

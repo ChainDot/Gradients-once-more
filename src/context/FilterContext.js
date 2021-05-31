@@ -47,8 +47,7 @@ export const FilterContextProvider = ({ children }) => {
           dispatch({ type: "FETCH_FAILURE", payload: error.message });
         }
       });
-    // eslint-disable-next-line
-  }, [isMounted]);
+  }, [isMounted, URL]);
 
   return (
     <FilterContext.Provider
