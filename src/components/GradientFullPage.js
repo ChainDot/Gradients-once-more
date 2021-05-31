@@ -24,7 +24,7 @@ const GradientFullPage = () => {
             state.data[Number(pickId) - 1]?.start
           }, ${state.data[Number(pickId) - 1]?.end})`,
         }
-      : { background: "Grey" };
+      : { background: "black" };
   return (
     <div className="flex-fill d-flex" style={style}>
       <ul className="fixed-top nav m-4">
@@ -39,7 +39,10 @@ const GradientFullPage = () => {
         </li>
       </ul>
       {id > length || isNaN(id) === true ? (
-        <div className="m-auto text-center">
+        <div
+          className="m-auto text-center text-light fw-bold fs-3
+        "
+        >
           Désolé, ce gradient n'existe pas.
           <Link
             className="btn btn-light text-dark nav-link m-3"
