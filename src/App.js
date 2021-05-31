@@ -17,7 +17,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={GradientsMain} />
           <Route exact path="/gradient/:id" component={GradientFullPage} />
-          <Redirect to="*" component={GradientFullPage} />
           <Route path="*" component={NotFoundPage} />
           <Redirect to="*" />
         </Switch>
