@@ -9,7 +9,7 @@ import { ReactComponent as SvgToggle } from "bootstrap-icons/icons/arrow-clockwi
 const GradientFullPage = () => {
   const params = useParams();
   const { id } = params;
-  const { state } = useFilter();
+  const { state, dispatch } = useFilter();
   const [pickId, setPickId] = useState(id);
   const length = state.data.length;
   // console.log(state);
@@ -33,6 +33,7 @@ const GradientFullPage = () => {
             className="btn btn-light text-dark nav-link me-2"
             to="/"
             aria-label="tous"
+            onClick={() => dispatch({ type: "SET_FILTER", payload: "all" })}
           >
             Tous
           </NavLink>
